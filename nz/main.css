@@ -86,3 +86,9 @@ footer{
 .ml-3{
     margin-left: 0.3m;
 }
+
+@media screen and (max-width: 900px){
+    main{
+        max-width: 90%;
+    }
+}
