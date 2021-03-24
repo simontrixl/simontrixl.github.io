@@ -64,7 +64,7 @@ main figure img {
 }
 
 main ul {
-    list-style-type: circle;
+    list-style-type: disc;
 }
 
 footer .next {
