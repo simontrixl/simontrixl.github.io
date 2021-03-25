@@ -19,7 +19,7 @@ const map = L.map("map" ,{
         L.tileLayer ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
     ]
 });
-//-43.881111, 169.042222 Koordinaten von Haast
+
 
 console.log(ROUTE);
 
@@ -28,9 +28,13 @@ for (let entry of ROUTE) {
 
     let mrk =L.marker([entry.lat, entry.lng]).addTo(map);
     mrk.bindPopup(
-        `${entry.name}
+        `${entry.nr}: ${entry.name}:
         <p><i class="fas fa-external-link-alt"></i><a href="${entry.wikipedia}">Read about stop in Wikipedia</a></p>
-        `).openPopup(); 
+        `);
+
+        if (entry.nr == 14) {
+            mrk.openPopup();
+        }
 
 }
 
