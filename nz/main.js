@@ -1,20 +1,19 @@
-
-let stop={
-     nr: 14,
-     name: "Haast",
-     lat: -43.881111,
-     lng: 169.042222,
-     user: "simontrixl",
-     wikipedia: "https://en.wikipedia.org/wiki/Haast_River"
+let stop = {
+    nr: 14,
+    name: "Haast",
+    lat: -43.881111,
+    lng: 169.042222,
+    user: "simontrixl",
+    wikipedia: "https://en.wikipedia.org/wiki/Haast_River"
 
 };
 
 
-const map = L.map("map" ,{
+const map = L.map("map", {
     //center: [ stop.lat, stop.lng ],
     //zoom: 13, 
     layers: [
-        L.tileLayer ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
     ]
 });
 
@@ -33,22 +32,22 @@ for (let entry of ROUTE) {
         <option value="${entry.user}">Stop ${entry.nr}: ${entry.name}</option>
     `;
 
-    let mrk =L.marker([entry.lat, entry.lng]).addTo(map);
+    let mrk = L.marker([entry.lat, entry.lng]).addTo(map);
     mrk.bindPopup(`
     ${entry.nr}: ${entry.name}:
         <p><i class="fas fa-external-link-alt"></i><a href="${entry.wikipedia}">Read about stop in Wikipedia</a></p>
     `);
 
     if (entry.nr == 14) {
-            map.setView([entry.lat, entry.lng], 13);
-            mrk.openPopup();
+        map.setView([entry.lat, entry.lng], 13);
+        mrk.openPopup();
     }
 }
 nav.options.selectedIndex = 14 - 1;
 nav.onchange = (evt) => {
     let selected = evt.target.selectedIndex;
     let options = evt.target.options;
-    let username= options[selected].value;
+    let username = options[selected].value;
     let link = `https://${username}.github.io/nz/index.html`;
     console.log(username, link);
 
