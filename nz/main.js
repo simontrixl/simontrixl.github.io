@@ -21,6 +21,8 @@ const map = L.map("map" ,{
 });
 //-43.881111, 169.042222 Koordinaten von Haast
 
+console.log(ROUTE);
+
 let mrk =L.marker([-43.881111, 169.042222]).addTo(map);
 mrk.bindPopup(
     `${stop.name}
