@@ -10,12 +10,7 @@ let stop={
 };
 
 
-/*console.log(stop);
-console.log(stop.name);
-console.log(stop.name);
-console.log(stop.lat);
-console.log(stop.lng);
-console.log(stop.wikipedia);*/
+
 
 const map = L.map("map" ,{
     center: [ stop.lat, stop.lng ],
