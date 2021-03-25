@@ -23,11 +23,18 @@ const map = L.map("map" ,{
 
 console.log(ROUTE);
 
-let mrk =L.marker([-43.881111, 169.042222]).addTo(map);
-mrk.bindPopup(
-    `${stop.name}
-    <p><i class="fas fa-external-link-alt"></i><a href="${stop.wikipedia}">Read about stop in Wikipedia</a></p>
-    `).openPopup(); 
+for (let entry of ROUTE) {
+    console.log(entry);
+
+    let mrk =L.marker([-entry.lat, entry.lng]).addTo(map);
+    mrk.bindPopup(
+        `${entry.name}
+        <p><i class="fas fa-external-link-alt"></i><a href="${entry.wikipedia}">Read about stop in Wikipedia</a></p>
+        `).openPopup(); 
+
+}
+
+
 
 //console.log(document.querySelector("#map")); 
 
