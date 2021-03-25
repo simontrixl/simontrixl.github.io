@@ -18,9 +18,7 @@ const map = L.map("map" ,{
     ]
 });
 
-
 console.log(ROUTE);
-
 
 let nav = document.querySelector("#navigation");
 
@@ -45,8 +43,9 @@ for (let entry of ROUTE) {
             map.setView([entry.lat, entry.lng], 13);
             mrk.openPopup();
     }
-
 }
+
+
 
 
 
