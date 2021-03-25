@@ -44,7 +44,7 @@ for (let entry of ROUTE) {
             mrk.openPopup();
     }
 }
-
+nav.options.selectedIndex = 14 - 1;
 nav.onchange = (evt) => {
     let selected = evt.target.selectedIndex;
     let options = evt.target.options;
