@@ -21,8 +21,15 @@ const map = L.map("map" ,{
 
 console.log(ROUTE);
 
+
+let nav = document.querySelector("#navigation");
+
 for (let entry of ROUTE) {
     console.log(entry);
+
+    nav.innerHTML += `
+        <option value="${entry.user}">Stop ${entry.nr}: ${entry.name}</option>
+    `;
 
     let mrk =L.marker([entry.lat, entry.lng]).addTo(map);
     mrk.bindPopup(`
@@ -41,3 +48,5 @@ for (let entry of ROUTE) {
 
 //console.log(document.querySelector("#map")); 
 
+
+//<option value="simontrixl">Haast</option>
