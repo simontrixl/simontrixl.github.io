@@ -25,15 +25,15 @@ for (let entry of ROUTE) {
     console.log(entry);
 
     let mrk =L.marker([entry.lat, entry.lng]).addTo(map);
-    mrk.bindPopup(
-        `${entry.nr}: ${entry.name}:
+    mrk.bindPopup(`
+    ${entry.nr}: ${entry.name}:
         <p><i class="fas fa-external-link-alt"></i><a href="${entry.wikipedia}">Read about stop in Wikipedia</a></p>
-        `);
+    `);
 
-        if (entry.nr == 14) {
+    if (entry.nr == 14) {
             map.setView([entry.lat, entry.lng], 13);
             mrk.openPopup();
-        }
+    }
 
 }
 
