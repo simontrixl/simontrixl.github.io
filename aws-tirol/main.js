@@ -45,7 +45,13 @@ fetch(awsUrl)
             <ul>
                 <li>Datum: ${formattedDate.toLocaleString("de")}</li>
                 <li>Temperatur:${station.properties.LT} C</li>
+                <li>Luftdruck:${station.properties.LD || '?'} </li>
+                <li>Schneehöhe:${station.properties.HS} cm</li>
+                <li>Luftfeuchtigkeit:${station.properties.RH || '?'} %</li>
+                <li>Windgeschwindigkeit: ${station.properties.WG || '?'}km/h</li>
+                <li>Seehöhe: ${station.geometry.coordinates[2]} m</li>
             </ul>
+            <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
             marker.addTo(awsLayer);
     }
