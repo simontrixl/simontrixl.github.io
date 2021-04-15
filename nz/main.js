@@ -1,7 +1,7 @@
 let stop = {
     nr: 14,
     name: "Haast",
-    lat: -43.881111,
+    lat: -43.881111,   
     lng: 169.042222,
     user: "simontrixl",
     wikipedia: "https://en.wikipedia.org/wiki/Haast_River"
