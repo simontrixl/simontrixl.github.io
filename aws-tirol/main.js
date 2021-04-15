@@ -42,4 +42,6 @@ fetch(awsUrl)
             marker.bindPopup(`<h3>${station.properties.name}</h3>`);
             marker.addTo(awsLayer);
     }
+    // set map view to all station
+    map.fitBounds(awsLayer.getBounds());
 });
