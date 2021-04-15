@@ -44,7 +44,7 @@ fetch(awsUrl)
             <h3>${station.properties.name}</h3>
             <ul>
                 <li>Datum: ${formattedDate.toLocaleString("de")}</li>
-                <li>Temperatur:${statio.properties.LT} C</li>
+                <li>Temperatur:${station.properties.LT} C</li>
             </ul>
             `);
             marker.addTo(awsLayer);
