@@ -1,6 +1,6 @@
-let basemapGray = L.tileLayer.provider('BasemapAT.grau');
+let basemapGray = L.tileLayer.provider('BasemapAT.grau'); //https://leafletjs.com/reference-1.7.1.html#tilelayer
 
-let map = L.map("map", {
+let map = L.map("map", { //https://leafletjs.com/reference-1.7.1.html#map-l-map
     center: [47, 11],
     zoom: 9,
     layers: [
@@ -8,13 +8,13 @@ let map = L.map("map", {
     ]
 });
 
-let layerControl = L.control.layers({
+let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.html#control-attribution-l-control-attribution
     "BasemapAT.grau": basemapGray,
     "BasemapAT.orthofoto": L.tileLayer.provider('BasemapAT.orthofoto'),
     "BasemapAT.surface": L.tileLayer.provider('BasemapAT.surface'),
     "BasemapAT.highdpi": L.tileLayer.provider('BasemapAT.highdpi'),
     "BasemapAT.overlay": L.tileLayer.provider('BasemapAT.overlay'),
-    "Basemap.overlay+orthofoto": L.layerGroup([
+    "Basemap.overlay+orthofoto": L.layerGroup([ //https://leafletjs.com/reference-1.7.1.html#layergroup-l-layergroup
         L.tileLayer.provider('BasemapAT.orthofoto'),
         L.tileLayer.provider('BasemapAT.overlay'),
     ])
@@ -24,7 +24,7 @@ let layerControl = L.control.layers({
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
-let awsLayer = L.featureGroup();
+let awsLayer = L.featureGroup(); //https://leafletjs.com/reference-1.7.1.html#featuregroup-l-featuregroup
 layerControl.addOverlay(awsLayer, "Wetterstationen Tirol");
 //awsLayer.addTo(map);
 
@@ -46,7 +46,7 @@ fetch(awsUrl)
         console.log('Daten konvertiert: ', json);
         for (station of json.features) {
             console.log('Station: ', station);
-            let marker = L.marker([
+            let marker = L.marker([ //https://leafletjs.com/reference-1.7.1.html#marker-l-marker
                 station.geometry.coordinates[1],
                 station.geometry.coordinates[0]
             ]);
@@ -76,7 +76,7 @@ fetch(awsUrl)
                 if (station.properties.HS > 200) {
                     highlightClass = 'snow-200';
                 }
-                let snowIcon = L.divIcon({
+                let snowIcon = L.divIcon({ //https://leafletjs.com/reference-1.7.1.html#divicon-l-divicon
                     html: `<div class="snow-label ${highlightClass}">${station.properties.HS}</div>`
                 })
                 let snowMarker = L.marker([
