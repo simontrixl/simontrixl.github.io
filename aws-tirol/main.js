@@ -34,10 +34,10 @@ layerControl.addOverlay(snowLayer, "Schneehöhe");
 
 let windLayer = L.featureGroup();
 layerControl.addOverlay(windLayer, "Windgeschwindigkeit");
-windLayer.addTo(map);
+//windLayer.addTo(map);
 
 let luftLayer = L.featureGroup();
-layerControl.addOverlay(luftLaywer, "Lufttemperatur");
+layerControl.addOverlay(luftLayer, "Lufttemperatur");
 luftLayer.addTo(map);
 
 fetch(awsUrl)
