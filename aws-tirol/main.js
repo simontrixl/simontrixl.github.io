@@ -50,12 +50,14 @@ fetch(awsUrl)
                 station.geometry.coordinates[1],
                 station.geometry.coordinates[0]
             ]);
+
             let formattedDate = new Date(station.properties.date);
+
             marker.bindPopup(`
             <h3>${station.properties.name}</h3>
             <ul>
                 <li>Datum: ${formattedDate.toLocaleString("de")}</li>
-                <li>Temperatur:${station.properties.LT} C</li>
+                <li>Temperatur:${station.properties.LT ||'?'} C</li>
                 <li>Luftdruck:${station.properties.LD || '?'} </li>
                 <li>Schneehöhe:${station.properties.HS} cm</li>
                 <li>Luftfeuchtigkeit:${station.properties.RH || '?'} %</li>
@@ -116,11 +118,11 @@ fetch(awsUrl)
                 if (station.properties.LT === 0) {
                     highlightClass = 'luft-null';
                 }
-                if (station.properties.LT >0) {
+                if (station.properties.LT > 0) {
                     highlightClass = 'luft-positiv';
                 }
                 let luftIcon = L.divIcon({
-                    html: `div class="luft-lable ${highlightClass}">${station.properties.LT}</div>`
+                    html: `<div class="luft-lable ${highlightClass}">${station.properties.LT}</div>`
                 })
                 let luftMarker = L.marker([
                     station.geometry.coordinates[1],
