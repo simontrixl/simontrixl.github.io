@@ -36,6 +36,10 @@ let windLayer = L.featureGroup();
 layerControl.addOverlay(windLayer, "Windgeschwindigkeit");
 windLayer.addTo(map);
 
+let luftLayer = L.featureGroup();
+layerControl.addOverlay(luftLaywer, "Lufttemperatur");
+luftLayer.addTo(map);
+
 fetch(awsUrl)
     .then(response => response.json())
     .then(json => {
