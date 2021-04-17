@@ -54,6 +54,33 @@ h2 {
 .wind-20 {
     background-color: red;
 }
-       
+
+
+
+.luft-lable {
+    font-size: 1.25em;
+    font-weight: bold;
+    display: inline;
+    padding: 0.3em;
+    border: 1px solid gray;
+    background-color: silver;
+    text-shadow:
+         -1px -1px 0 white,
+         -1px -1px 0 white,
+         -1px -1px 0 white,
+         -1px -1px 0 white;
+}
+
+.luft-negativ {
+    background-color: blue;
+}
+
+.luft-null {
+    background-color: gray;
+}
+
+.luft-positiv {
+    background-color: green;
+}
 
     
