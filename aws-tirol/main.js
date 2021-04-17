@@ -113,14 +113,14 @@ fetch(awsUrl)
                 if (station.properties.LT < 0) {
                     highlightClass = 'luft-negativ';
                 }
-                if (station.properties.LT == 0) {
+                if (station.properties.LT === 0) {
                     highlightClass = 'luft-null';
                 }
                 if (station.properties.LT >0) {
                     highlightClass = 'luft-positiv';
                 }
                 let luftIcon = L.divIcon({
-                    html: `div class="luft-lable ${highlightclass}">${station.properties.LT}</div>`
+                    html: `div class="luft-lable ${highlightClass}">${station.properties.LT}</div>`
                 })
                 let luftMarker = L.marker([
                     station.geometry.coordinates[1],
