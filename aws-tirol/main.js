@@ -106,7 +106,34 @@ fetch(awsUrl)
                 });
                 windMarker.addTo(windLayer);
             }
+
+            marker.addTo(awsLayer);
+            if (station.properties.LT) {
+                let highlightClass = '';
+                if (station.properties.LT < 0) {
+                    highlightClass = 'luft-negativ';
+                }
+                if (station.properties.LT == 0) {
+                    highlightClass = 'luft-null';
+                }
+                if (station.properties.LT >0) {
+                    highlightClass = 'luft-positiv';
+                }
+                let luftIcon = L.divIcon({
+                    html: `div class="luft-lable ${highlightclass}">${station.properties.LT}</div>`
+                })
+                let luftMarker = L.marker([
+                    station.geometry.coordinates[1],
+                    station.geometry.coordinates[0]
+                ], {
+                    icon:luftIcon
+                });
+                luftMarker.addTo(luftLayer);
+            }
+
         }
         // set map view to all station
         map.fitBounds(awsLayer.getBounds());
     });
+
+    // Werte mit 0 habe ich in eine eig Klasse getan, da ja negativ=blau und positiv=grün.. bin mir aba nit sicher ob das stimmt 
