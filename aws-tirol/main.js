@@ -127,7 +127,7 @@ fetch(awsUrl)
                     station.geometry.coordinates[1],
                     station.geometry.coordinates[0]
                 ], {
-                    icon:luftIcon
+                    icon: luftIcon
                 });
                 luftMarker.addTo(luftLayer);
             }
@@ -137,4 +137,4 @@ fetch(awsUrl)
         map.fitBounds(awsLayer.getBounds());
     });
 
-    // Werte mit 0 habe ich in eine eig Klasse getan, da ja negativ=blau und positiv=grün.. bin mir aba nit sicher ob das stimmt 
+// Werte mit 0 habe ich in eine eig Klasse getan, da ja negativ=blau und positiv=grün.. bin mir aba nit sicher ob das stimmt 
