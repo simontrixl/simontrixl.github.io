@@ -12,7 +12,7 @@ let overlays = {
     stations: L.featureGroup(),
     temperature: L.featureGroup(),
     snowheight: L.featureGroup(),
-    windspeed: L. featureGroup(),
+    windspeed: L.featureGroup(),
     winddirection: L.featureGroup(),
 };
 
@@ -27,10 +27,10 @@ let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.ht
         L.tileLayer.provider('BasemapAT.overlay'),
     ])
 }, {
-    "Wetterstationen Tirol": overlays.stations, 
+    "Wetterstationen Tirol": overlays.stations,
     "Temperatur  Grad ": overlays.temperature,
     "Schneehöhe cm": overlays.snowheight,
-    "Windgeschwindigkeit km/h":overlays.windspeed,
+    "Windgeschwindigkeit km/h": overlays.windspeed,
     "Windrichtung": overlays.winddirection
 }, {
     collapsed: false
@@ -88,7 +88,7 @@ fetch(awsUrl)
     .then(json => {
         console.log('Daten konvertiert: ', json);
         for (station of json.features) {
-           // console.log('Station: ', station);
+            // console.log('Station: ', station);
             let marker = L.marker([ //https://leafletjs.com/reference-1.7.1.html#marker-l-marker
                 station.geometry.coordinates[1],
                 station.geometry.coordinates[0]
@@ -109,12 +109,12 @@ fetch(awsUrl)
             </ul>
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
-            
+
             marker.addTo(overlays.stations);
-            if (typeof station.properties.HS =="number") {
+            if (typeof station.properties.HS == "number") {
                 let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.HS.toFixed(0),
-                    colors: COLORS.snowheight, 
+                    colors: COLORS.snowheight,
                     station: station.properties.name
                 });
                 marker.addTo(overlays.snowheight);
@@ -127,7 +127,7 @@ fetch(awsUrl)
                 });
                 marker.addTo(overlays.windspeed);
             }
-            if (typeof station.properties.LT =="number") {
+            if (typeof station.properties.LT == "number") {
                 let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.LT.toFixed(1),
                     colors: COLORS.temperature,
@@ -142,6 +142,6 @@ fetch(awsUrl)
     });
 
 
-    
+
 
 // Werte mit 0 habe ich in eine eig Klasse getan, da ja negativ=blau und positiv=grün.. bin mir aba nit sicher ob das stimmt 
