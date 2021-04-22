@@ -59,7 +59,8 @@ let newLabel = (coords, options) => {
         className: "text-label"
     })
     let marker = L.marker([coords[1], coords[0]], {
-        icon: label
+        icon: label,
+        title: `${options.station} (${coords[2]}m)`
     });
     return marker;
 };
@@ -122,7 +123,7 @@ fetch(awsUrl)
                 let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.WG.toFixed(0),
                     colors: COLORS.windspeed,
-                    station: stion.properties.name
+                    station: station.properties.name
                 });
                 marker.addTo(overlays.windspeed);
             }
