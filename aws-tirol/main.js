@@ -97,46 +97,17 @@ fetch(awsUrl)
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
 
-            marker.addTo(overlays.stations);
             if (typeof station.properties.HS =="number") {
-                let highlightClass = '';
-                if (station.properties.HS > 100) {
-                    highlightClass = 'snow-100';
-                }
-                if (station.properties.HS > 200) {
-                    highlightClass = 'snow-200';
-                }
-                let snowIcon = L.divIcon({ //https://leafletjs.com/reference-1.7.1.html#divicon-l-divicon
-                    html: `<div class="snow-label ${highlightClass}">${station.properties.HS}</div>`
-                })
-                let snowMarker = L.marker([
-                    station.geometry.coordinates[1],
-                    station.geometry.coordinates[0]
-                ], {
-                    icon: snowIcon
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.HS
                 });
-                snowMarker.addTo(overlays.snowheight);
+                marker.addTo(overlays.snowheight);
             }
-
-            marker.addTo(overlays.stations);
             if (typeof station.properties.WG == "number") {
-                let highlightClass = '';
-                if (station.properties.WG > 10) {
-                    highlightClass = 'wind-10';
-                }
-                if (station.properties.WG > 20) {
-                    highlightClass = 'wind-20';
-                }
-                let windIcon = L.divIcon({
-                    html: `<div class="wind-lable ${highlightClass}">${station.properties.WG}</div>`
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.WG
                 });
-                let windMarker = L.marker([
-                    station.geometry.coordinates[1],
-                    station.geometry.coordinates[0]
-                ], {
-                    icon: windIcon
-                });
-                windMarker.addTo(overlays.windspeed);
+                marker.addTo(overlays.windspeed);
             }
             if (typeof station.properties.LT =="number") {
                 let marker = newLabel(station.geometry.coordinates, {
