@@ -8,7 +8,7 @@ let map = L.map("map", { //https://leafletjs.com/reference-1.7.1.html#map-l-map
     ]
 });
 
-let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.html#control-attribution-l-control-attribution
+let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.html#control-layers-l-control-layers
     "BasemapAT.grau": basemapGray,
     "BasemapAT.orthofoto": L.tileLayer.provider('BasemapAT.orthofoto'),
     "BasemapAT.surface": L.tileLayer.provider('BasemapAT.surface'),
