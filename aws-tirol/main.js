@@ -28,7 +28,7 @@ let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.ht
     ])
 }, {
     "Wetterstationen Tirol": overlays.stations, 
-    "Temperatur in Grad ": overlays.temperature,
+    "Temperatur  Grad ": overlays.temperature,
     "Schneehöhe cm": overlays.snowheight,
     "Windgeschwindigkeit km/h":overlays.windspeed,
     "Windrichtung": overlays.winddirection
@@ -41,6 +41,15 @@ L.control.scale({
     imperial: false
 }).addTo(map);
 
+let newLabel = (coords, options) => {
+    console.log("Koordinaten coords: ", coords)
+    console.log("Optionsobjekt:", options);
+    let marker = L.marker([coords[1], coords[0]]);
+    console.log ("Marker:", marker);
+    return marker;
+    //Label erstellen
+    //den Label zurückgeben
+};
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
@@ -119,7 +128,7 @@ fetch(awsUrl)
                 }
                 let windIcon = L.divIcon({
                     html: `<div class="wind-lable ${highlightClass}">${station.properties.WG}</div>`
-                })
+                });
                 let windMarker = L.marker([
                     station.geometry.coordinates[1],
                     station.geometry.coordinates[0]
@@ -128,34 +137,20 @@ fetch(awsUrl)
                 });
                 windMarker.addTo(overlays.windspeed);
             }
-
-            marker.addTo(overlays.stations);
             if (typeof station.properties.LT =="number") {
-                let highlightClass = '';
-                if (station.properties.LT < 0) {
-                    highlightClass = 'luft-negativ';
-                }
-                if (station.properties.LT === 0) {
-                    highlightClass = 'luft-null';
-                }
-                if (station.properties.LT > 0) {
-                    highlightClass = 'luft-positiv';
-                }
-                let luftIcon = L.divIcon({
-                    html: `<div class="luft-lable ${highlightClass}">${station.properties.LT}</div>`
-                })
-                let luftMarker = L.marker([
-                    station.geometry.coordinates[1],
-                    station.geometry.coordinates[0]
-                ], {
-                    icon: luftIcon
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.LT
                 });
-                luftMarker.addTo(overlays.temperature);
+                marker.addTo(overlays.temperature);
+            
             }
 
         }
         // set map view to all station
         map.fitBounds(overlays.stations.getBounds());
     });
+
+
+    
 
 // Werte mit 0 habe ich in eine eig Klasse getan, da ja negativ=blau und positiv=grün.. bin mir aba nit sicher ob das stimmt 
