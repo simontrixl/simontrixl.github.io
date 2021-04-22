@@ -88,7 +88,7 @@ const COLORS = {
     }, {
         min: 10,
         max: 25,
-        col:"#b0ffbc"
+        col: "#b0ffbc"
     }, {
         min: 25,
         max: 50,
@@ -111,7 +111,7 @@ const COLORS = {
         col: "#784bff"
     }, {
         min: 400,
-        max:1000,
+        max: 1000,
         col: "#cd0feb"
     }]
 };
