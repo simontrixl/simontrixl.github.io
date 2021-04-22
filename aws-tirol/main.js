@@ -113,21 +113,24 @@ fetch(awsUrl)
             if (typeof station.properties.HS =="number") {
                 let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.HS.toFixed(0),
-                    colors: COLORS.snowheight
+                    colors: COLORS.snowheight, 
+                    station: station.properties.name
                 });
                 marker.addTo(overlays.snowheight);
             }
             if (typeof station.properties.WG == "number") {
                 let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.WG.toFixed(0),
-                    colors: COLORS.windspeed
+                    colors: COLORS.windspeed,
+                    station: stion.properties.name
                 });
                 marker.addTo(overlays.windspeed);
             }
             if (typeof station.properties.LT =="number") {
                 let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.LT.toFixed(1),
-                    colors: COLORS.temperature
+                    colors: COLORS.temperature,
+                    station: station.properties.name
                 });
                 marker.addTo(overlays.temperature);
             }
