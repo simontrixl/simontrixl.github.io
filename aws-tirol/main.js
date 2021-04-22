@@ -38,21 +38,21 @@ overlays.temperature.addTo(map);
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
-let awsLayer = L.featureGroup(); //https://leafletjs.com/reference-1.7.1.html#featuregroup-l-featuregroup
-layerControl.addOverlay(awsLayer, "Wetterstationen Tirol");
+//let awsLayer = L.featureGroup(); //https://leafletjs.com/reference-1.7.1.html#featuregroup-l-featuregroup
+//layerControl.addOverlay(awsLayer, "Wetterstationen Tirol");
 //awsLayer.addTo(map);
 
-let snowLayer = L.featureGroup();
-layerControl.addOverlay(snowLayer, "Schneehöhe");
+//let snowLayer = L.featureGroup();
+//layerControl.addOverlay(snowLayer, "Schneehöhe");
 //snowLayer.addTo(map);
 
-let windLayer = L.featureGroup();
-layerControl.addOverlay(windLayer, "Windgeschwindigkeit");
+//let windLayer = L.featureGroup();
+//layerControl.addOverlay(windLayer, "Windgeschwindigkeit");
 //windLayer.addTo(map);
 
-let luftLayer = L.featureGroup();
-layerControl.addOverlay(luftLayer, "Lufttemperatur");
-luftLayer.addTo(map);
+//let luftLayer = L.featureGroup();
+//layerControl.addOverlay(luftLayer, "Lufttemperatur");
+//luftLayer.addTo(map);
 
 fetch(awsUrl)
     .then(response => response.json())
@@ -81,7 +81,7 @@ fetch(awsUrl)
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
 
-            marker.addTo(awsLayer);
+            marker.addTo(overlays.stations);
             if (station.properties.HS) {
                 let highlightClass = '';
                 if (station.properties.HS > 100) {
@@ -99,7 +99,7 @@ fetch(awsUrl)
                 ], {
                     icon: snowIcon
                 });
-                snowMarker.addTo(snowLayer);
+                snowMarker.addTo(overlay.snowheight);
             }
 
             marker.addTo(awsLayer);
@@ -120,7 +120,7 @@ fetch(awsUrl)
                 ], {
                     icon: windIcon
                 });
-                windMarker.addTo(windLayer);
+                windMarker.addTo(overlays.windspeed);
             }
 
             marker.addTo(awsLayer);
@@ -144,7 +144,7 @@ fetch(awsUrl)
                 ], {
                     icon: luftIcon
                 });
-                luftMarker.addTo(luftLayer);
+                luftMarker.addTo(overlays.stations.getBounds);
             }
 
         }
