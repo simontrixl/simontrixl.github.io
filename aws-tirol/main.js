@@ -52,9 +52,10 @@ let getColor = (value, colorRamp) => {
 };
 
 let newLabel = (coords, options) => {
-    let color = getColor(options.value, options.colors)
+    let color = getColor(options.value, options.colors);
+    //console.log("Wert", options.value, "bekommt Farbe:", color);
     let label = L.divIcon({
-        html: `<div>${options.value}</div>`,
+        html: `<div style="background-color: ${color}">${options.value}</div>`,
         className: "text-label"
     })
     let marker = L.marker([coords[1], coords[0]], {
