@@ -2,7 +2,7 @@ let basemapGray = L.tileLayer.provider('BasemapAT.grau'); //https://leafletjs.co
 
 let map = L.map("map", { //https://leafletjs.com/reference-1.7.1.html#map-l-map
     center: [47, 11],
-    zoom: 9,
+    zoom: 10,
     layers: [
         basemapGray
     ]
