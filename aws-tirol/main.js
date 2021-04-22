@@ -11,7 +11,7 @@ let map = L.map("map", { //https://leafletjs.com/reference-1.7.1.html#map-l-map
 let overlays = {
     stations: L.featureGroup(),
     temperature: L.featureGroup(),
-    snowheight: L.featureGroupe(),
+    snowheight: L.featureGroup(),
     windspeed: L. featureGroup(),
     winddirection: L.featureGroup(),
 };
@@ -32,8 +32,12 @@ let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.ht
     "Schneehöhe cm": overlays.snowheight,
     "Windgeschwindigkeit km/h":overlays.windspeed,
     "Windrichtung": overlays.winddirection
+}, {
+    collapsed: false
 }).addTo(map);
 overlays.temperature.addTo(map);
+
+L.control.scale().addTo(map);
 
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
@@ -99,7 +103,7 @@ fetch(awsUrl)
                 ], {
                     icon: snowIcon
                 });
-                snowMarker.addTo(overlay.snowheight);
+                snowMarker.addTo(overlays.snowheight);
             }
 
             marker.addTo(awsLayer);
@@ -144,12 +148,12 @@ fetch(awsUrl)
                 ], {
                     icon: luftIcon
                 });
-                luftMarker.addTo(overlays.stations.getBounds);
+                luftMarker.addTo(overlays.temperature);
             }
 
         }
         // set map view to all station
-        map.fitBounds(awsLayer.getBounds());
+        map.fitBounds(overlays.stations.getBounds());
     });
 
 // Werte mit 0 habe ich in eine eig Klasse getan, da ja negativ=blau und positiv=grün.. bin mir aba nit sicher ob das stimmt 
