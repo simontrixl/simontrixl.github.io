@@ -8,14 +8,14 @@ let map = L.map("map", { //https://leafletjs.com/reference-1.7.1.html#map-l-map
     ]
 });
 
-let averlays = {
+let overlays = {
     stations: L.featureGroup(),
     temperature: L.featureGroup(),
     snowheight: L.featureGroupe(),
     windspeed: L. featureGroup(),
     winddirection: L.featureGroup(),
 };
-console.log(overlays.stations)
+
 let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.html#control-layers-l-control-layers
     "BasemapAT.grau": basemapGray,
     "BasemapAT.orthofoto": L.tileLayer.provider('BasemapAT.orthofoto'),
@@ -26,7 +26,14 @@ let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.ht
         L.tileLayer.provider('BasemapAT.orthofoto'),
         L.tileLayer.provider('BasemapAT.overlay'),
     ])
+}, {
+    "Wetterstationen Tirol": overlays.stations, 
+    "Temperatur in Grad ": overlays.temperature,
+    "Schneehöhe cm": overlays.snowheight,
+    "Windgeschwindigkeit km/h":overlays.windspeed,
+    "Windrichtung": overlays.winddirection
 }).addTo(map);
+overlays.temperature.addTo(map);
 
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
