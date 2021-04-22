@@ -56,7 +56,7 @@ fetch(awsUrl)
             <h3>${station.properties.name}</h3>
             <ul>
                 <li>Datum: ${formattedDate.toLocaleString("de")}</li>
-                <li>Temperatur:${station.properties.LT ||'?'} C</li>
+                <li>Temperatur:${station.properties.LT ||'?'} C</li> 
                 <li>Luftdruck:${station.properties.LD || '?'} </li>
                 <li>Schneehöhe:${station.properties.HS} cm</li>
                 <li>Luftfeuchtigkeit:${station.properties.RH || '?'} %</li>
