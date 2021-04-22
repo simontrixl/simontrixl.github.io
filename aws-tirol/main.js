@@ -72,7 +72,7 @@ fetch(awsUrl)
     .then(json => {
         console.log('Daten konvertiert: ', json);
         for (station of json.features) {
-            console.log('Station: ', station);
+           // console.log('Station: ', station);
             let marker = L.marker([ //https://leafletjs.com/reference-1.7.1.html#marker-l-marker
                 station.geometry.coordinates[1],
                 station.geometry.coordinates[0]
