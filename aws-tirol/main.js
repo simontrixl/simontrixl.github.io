@@ -130,9 +130,9 @@ fetch(awsUrl)
                 marker.addTo(overlays.windspeed);
             }
 
-            if (typeof station.properties.HR == "number") {
+            if (typeof station.properties.RH == "number") {
                 let marker = newLabel(station.geometry.coordinates, {
-                    value: station.properties.HR.toFixed(1),
+                    value: station.properties.RH.toFixed(1),
                     colors: COLORS.relLuft,
                     station: station.properties.name
                 });
