@@ -13,6 +13,7 @@ let overlays = {
     temperature: L.featureGroup(),
     snowheight: L.featureGroup(),
     windspeed: L.featureGroup(),
+    relLuft: L.featureGroup(),
     winddirection: L.featureGroup(),
 };
 
@@ -31,6 +32,7 @@ let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.ht
     "Temperatur  Grad ": overlays.temperature,
     "Schneehöhe cm": overlays.snowheight,
     "Windgeschwindigkeit km/h": overlays.windspeed,
+    "Luftfeuchtigkeit": overlays.relLuft,
     "Windrichtung": overlays.winddirection
 }, {
     collapsed: false
@@ -126,6 +128,16 @@ fetch(awsUrl)
                     station: station.properties.name
                 });
                 marker.addTo(overlays.windspeed);
+            }
+
+            if (typeof station.properties.HR == "number") {
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.HR.toFixed(1),
+                    colors: COLORS.relLuft,
+                    station: station.properties.name
+                });
+                marker.addTo(overlays.relLuft);               
+            
             }
             if (typeof station.properties.LT == "number") {
                 let marker = newLabel(station.geometry.coordinates, {
