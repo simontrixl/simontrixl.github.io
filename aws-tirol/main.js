@@ -43,7 +43,7 @@ L.control.scale({
     imperial: false
 }).addTo(map);
 
-L.control.rainviewer({ 
+L.control.rainviewer({
     position: 'bottomleft',
     nextButtonText: '>',
     playStopButtonText: 'Play/Stop',
@@ -147,8 +147,8 @@ fetch(awsUrl)
                     colors: COLORS.relLuft,
                     station: station.properties.name
                 });
-                marker.addTo(overlays.relLuft);               
-            
+                marker.addTo(overlays.relLuft);
+
             }
             if (typeof station.properties.LT == "number") {
                 let marker = newLabel(station.geometry.coordinates, {
