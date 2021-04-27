@@ -76,6 +76,7 @@ let newLabel = (coords, options) => {
         title: `${options.station} (${coords[2]}m)`
     });
     return marker;
+};
 
 let getDirection = (direction, richtung) => {
     console.log("Wert: ", direction);
@@ -98,6 +99,7 @@ let newDirection = (coords, options) => {
         title: `${options.station} (${coords[2]} m)`
     });
     return marker;
+};
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
@@ -180,12 +182,11 @@ fetch(awsUrl)
                 });
                 marker.addTo(overlays.temperature);
             }
-
             if (typeof station.properties.WR == "number") {
-                let marker = newLabel(station.geometry.coordinates, {
+                let marker = newDirection(station.geometry.coordinates, {
                     value: station.properties.WR,
                     directions: DIRECTIONS,
-                    station: station.properties.name
+                    station: station.properties.name,
                 });
                 marker.addTo(overlays.winddirection);
             }
