@@ -76,7 +76,28 @@ let newLabel = (coords, options) => {
         title: `${options.station} (${coords[2]}m)`
     });
     return marker;
+
+let getDirection = (direction, richtung) => {
+    console.log("Wert: ", direction);
+    for (let rule of richtung) {
+        if ((direction >= rule.min) && (direction < rule.max)) {
+            return rule.dir
+        }
+    }
+
 };
+
+let newDirection = (coords, options) => {
+    let direction = getDirection(options.value, options.directions);
+    let label = L.divIcon({
+        html: `<div>${direction}</div>`,
+        className: "text-label",
+    })
+    let marker = L.marker([coords[1], coords[0]], {
+        icon: label,
+        title: `${options.station} (${coords[2]} m)`
+    });
+    return marker;
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
@@ -119,6 +140,7 @@ fetch(awsUrl)
                 <li>Luftfeuchtigkeit:${station.properties.RH || '?'} %</li>
                 <li>Windgeschwindigkeit: ${station.properties.WG || '?'}km/h</li>
                 <li>Seehöhe: ${station.geometry.coordinates[2]} m.ü.A</li>
+                <li>Windrichtung: ${station.properties.WR || '?'} Grad </li>
             </ul>
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
@@ -158,6 +180,16 @@ fetch(awsUrl)
                 });
                 marker.addTo(overlays.temperature);
             }
+
+            if (typeof station.properties.WR == "number") {
+                let marker = newLabel(station.geometry.coordinates, {
+                    value: station.properties.WR,
+                    directions: DIRECTIONS,
+                    station: station.properties.name
+                });
+                marker.addTo(overlays.winddirection);
+            }
+
 
         }
         // set map view to all station
