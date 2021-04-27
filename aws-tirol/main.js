@@ -28,12 +28,12 @@ let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.ht
         L.tileLayer.provider('BasemapAT.overlay'),
     ])
 }, {
-    "Wetterstationen Tirol": overlays.stations,
-    "Temperatur  Grad ": overlays.temperature,
-    "Schneehöhe cm": overlays.snowheight,
-    "Windgeschwindigkeit km/h": overlays.windspeed,
-    "Luftfeuchtigkeit": overlays.relLuft,
-    "Windrichtung": overlays.winddirection
+    "Wetterstationen: Tirol": overlays.stations,
+    "Temperatur: ° ": overlays.temperature,
+    "Schneehöhe: cm": overlays.snowheight,
+    "Windgeschwindigkeit: km/h": overlays.windspeed,
+    "Luftfeuchtigkeit: %": overlays.relLuft,
+    "Windrichtung: °": overlays.winddirection
 }, {
     collapsed: false
 }).addTo(map);
