@@ -33,7 +33,7 @@ let layerControl = L.control.layers({ //https://leafletjs.com/reference-1.7.1.ht
     "Schneehöhe: cm": overlays.snowheight,
     "Windgeschwindigkeit: km/h": overlays.windspeed,
     "Luftfeuchtigkeit: %": overlays.relLuft,
-    "Windrichtung: °": overlays.winddirection
+    "Windrichtung: N/O/S/W": overlays.winddirection
 }, {
     collapsed: false
 }).addTo(map);
