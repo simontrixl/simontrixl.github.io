@@ -200,4 +200,3 @@ fetch(awsUrl)
 
 
 
-// Werte mit 0 habe ich in eine eig Klasse getan, da ja negativ=blau und positiv=grün.. bin mir aba nit sicher ob das stimmt 
