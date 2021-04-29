@@ -75,12 +75,23 @@ for (let config of OGDWIEN) {
             console.log("DAta: ", geojsonData);
             if (config.title == "Haltestellen Vienna Sightseeing") {
                 drawBusSTop(geojsonData);
-            }
-        })
+        }
+    })
 }
+
+
 
 let drawBusLine = (geojsonData) => {
     L.geoJson(geojsonData, {
+        style: (feature) => {
+            let col = "red";
+            if (feature.properties.LINE_NAME == 'Blue Line') {
+                col = "blue";
+            }
+             return {
+                color: col
+            }
+        },
         onEachFeature: (feature, layer) => { 
             layer.bindPopup(`<strong>${feature.properties.LINE_NAME}</strong>`)
         },
