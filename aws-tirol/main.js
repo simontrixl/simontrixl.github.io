@@ -44,13 +44,13 @@ L.control.scale({
 }).addTo(map);
 
 L.control.rainviewer({
-    position: 'bottomleft',
+    position: 'topleft',
     nextButtonText: '>',
     playStopButtonText: 'Play/Stop',
     prevButtonText: '<',
     positionSliderLabelText: "Hour:",
     opacitySliderLabelText: "Opacity:",
-    animationInterval: 500,
+    animationInterval: 450,
     opacity: 0.5
 }).addTo(map);
 
