@@ -61,7 +61,7 @@ let drawBusSTop = (geojsonData) => {
                 })
             })
         }
-    }).addTo(map);
+    }).addTo(overlays.busStops);
 }
 
 //fetch("data/TOURISTIKHTSVSLOGD.json")
@@ -90,8 +90,6 @@ for (let config of OGDWIEN) {
             console.log("DAta: ", geojsonData);
             if (config.title == "Haltestellen Vienna Sightseeing") {
                 drawBusSTop(geojsonData);
-
-
             }
         
         })
