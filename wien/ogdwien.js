@@ -13,4 +13,8 @@ const OGDWIEN = [{
     title: "Fußgängerzonen",
     source: "https://www.data.gv.at/katalog/dataset/946a1d1c-27ea-49d4-93be-9ac68b399a20",
     data: "data/FUSSGEHERZONEOGD.json"
+}, {
+    title: "Sehenswürdigkeiten",
+    source: "https://www.data.gv.at/katalog/dataset/946a1d1c-27ea-49d4-93be-9ac68b399a20",
+    data: "data/SEHENSWUERDIGOGD.json"
 }];
