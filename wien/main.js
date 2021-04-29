@@ -91,6 +91,5 @@ for (let config of OGDWIEN) {
             if (config.title == "Haltestellen Vienna Sightseeing") {
                 drawBusSTop(geojsonData);
             }
-        
         })
 }
