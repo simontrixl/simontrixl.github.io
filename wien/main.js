@@ -13,8 +13,6 @@ let baselayers = {
     ]),
 };
 
-
-
 // Overlays für die Themen zum Ein- und Ausschalten definieren
 let overlays = {
     busLines: L.featureGroup(),
@@ -22,8 +20,6 @@ let overlays = {
     pedAreas: L.featureGroup(),
     attractions: L.featureGroup()
 };
-
-
 
 // Karte initialisieren und auf Wiens Wikipedia Koordinate blicken
 let map = L.map("map", {
@@ -162,7 +158,6 @@ var miniMap = new L.Control.MiniMap(
         minimized: false,
     }
 ).addTo(map);
-
 
 // Reachability plugin
 let styleIntervals = (feature) => {
