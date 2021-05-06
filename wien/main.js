@@ -153,12 +153,12 @@ for (let config of OGDWIEN) {
         })
 }
 // Leaflet hash - new: objekte initialisieren mit // einfach ausblenden wenn man will
- L.hash(map);
+L.hash(map);
 
- //minimap
- var miniMap = new L.Control.MiniMap(
-     L.tileLayer.provider("BasemapAT.basemap"), {
-         toggleDisplay: true,
-         minimized: false
-     }
+//minimap
+var miniMap = new L.Control.MiniMap(
+    L.tileLayer.provider("BasemapAT.basemap"), {
+        toggleDisplay: true,
+        minimized: false
+    }
 ).addTo(map);
