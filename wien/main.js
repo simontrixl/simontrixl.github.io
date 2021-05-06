@@ -13,6 +13,8 @@ let baselayers = {
     ]),
 };
 
+
+
 // Overlays für die Themen zum Ein- und Ausschalten definieren
 let overlays = {
     busLines: L.featureGroup(),
@@ -20,6 +22,8 @@ let overlays = {
     pedAreas: L.featureGroup(),
     attractions: L.featureGroup()
 };
+
+
 
 // Karte initialisieren und auf Wiens Wikipedia Koordinate blicken
 let map = L.map("map", {
@@ -150,3 +154,8 @@ for (let config of OGDWIEN) {
 }
 // Leaflet hash - new: objekte initialisieren mit // einfach ausblenden wenn man will
  L.hash(map);
+
+ //minimap
+ var miniMap = new L.Control.MiniMap(
+     L.tileLayer.provider("BasemapAT.basemap")
+).addTo(map);
