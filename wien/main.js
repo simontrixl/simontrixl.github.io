@@ -159,6 +159,6 @@ L.hash(map);
 var miniMap = new L.Control.MiniMap(
     L.tileLayer.provider("BasemapAT.basemap"), {
         toggleDisplay: true,
-        minimized: false
+        minimized: false,
     }
 ).addTo(map);
