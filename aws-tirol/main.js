@@ -195,8 +195,13 @@ fetch(awsUrl)
         }
         // set map view to all station
         map.fitBounds(overlays.stations.getBounds());
+
+        //minimap
+        var miniMap = new L.Control.MiniMap(
+            L.tileLayer.provider("BasemapAT.grau"), {
+                toggleDisplay: true,
+                minimized: false,
+            }
+        ).addTo(map);
+
     });
-
-
-
-
