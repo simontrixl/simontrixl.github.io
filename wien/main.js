@@ -147,3 +147,5 @@ for (let config of OGDWIEN) {
             }
         })
 }
+// Leaflet hash
+var hash = new L.Hash(map);
