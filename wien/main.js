@@ -147,5 +147,5 @@ for (let config of OGDWIEN) {
             }
         })
 }
-// Leaflet hash - new: objekte initialisieren
+// Leaflet hash - new: objekte initialisieren mit // einfach ausblenden wenn man will
  L.hash(map);
