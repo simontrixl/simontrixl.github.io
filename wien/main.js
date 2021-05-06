@@ -157,5 +157,8 @@ for (let config of OGDWIEN) {
 
  //minimap
  var miniMap = new L.Control.MiniMap(
-     L.tileLayer.provider("BasemapAT.basemap")
+     L.tileLayer.provider("BasemapAT.basemap"), {
+         toggleDisplay: true,
+         minimized: true
+     }
 ).addTo(map);
