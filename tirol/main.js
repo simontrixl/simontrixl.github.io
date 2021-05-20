@@ -70,8 +70,8 @@ const drawTrack = (nr) => {
         <h3>${gpxTrack.get_name()}</h3>
         <ul>
             <li>Streckenlänge: ${gpxTrack.get_distance()} m</li>
-            <li>tiefster Punkt: ${gpxTrack.get_elevation_min()} m</li>
-            <li>höchster Punkt: ${gpxTrack.get_elevation_max()} m</li>
+            <li>Tiefster Punkt: ${gpxTrack.get_elevation_min()} m</li>
+            <li>Höchster Punkt: ${gpxTrack.get_elevation_max()} m</li>
             <li>Höhenmeter bergauf: ${gpxTrack.get_elevation_gain()} m</li>
             <li>Höhenmeter bergab: ${gpxTrack.get_elevation_loss()} m</li>
         </ul>
