@@ -45,6 +45,7 @@ overlays.tracks.addTo(map);
 const elevationControl =L.control.elevation({
     elevationDiv: "#profile",
     followMarker: false,
+    theme: 'lime-theme',
 }).addTo(map);
 
 const drawTrack = (nr) => {
