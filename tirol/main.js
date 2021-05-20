@@ -87,9 +87,9 @@ const drawTrack = (nr) => {
 const selectedTrack = 15;
 drawTrack(selectedTrack);
 
-console.log('biketirol json: ', BIKETIROL);
+//console.log('biketirol json: ', BIKETIROL);
 let pulldown = document.querySelector("#pulldown");
-console.log('Pulldown: '. pulldown);
+//console.log('Pulldown: '. pulldown);
 let selected = '';
 for (let track of BIKETIROL) {
     if (selectedTrack == track.nr) {
