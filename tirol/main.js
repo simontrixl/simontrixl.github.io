@@ -100,7 +100,7 @@ for (let track of BIKETIROL) {
     pulldown.innerHTML += `<option ${selected} value="${track.nr}">${track.nr}: ${track.etappe}</option>`;
     
 }
-
+// Eventhandler für Änderungen des Dropdwon
 pulldown.onchange = () => {
     //console.log('changed!!!!!', pulldown.value);
     drawTrack(pulldown.value);
