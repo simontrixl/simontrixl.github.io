@@ -32,3 +32,7 @@ header a {
     margin-top: 0.3em;
     border: 1px solid gray;
 }
+
+#map path.lime-theme.elevation-polyline {
+    stroke-opacity: 0;
+}
