@@ -80,7 +80,7 @@ const drawWikipedia = (bounds) => {
                 ${img}
                 <p>${article.summary}</p>
                 <a target="Wikipedia" href= "httos://${article.wikipediaUrl}">Wikipedia-Artikel</a>
-            `)
+            `);
         }
     });
     
