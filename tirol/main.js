@@ -81,10 +81,17 @@ const drawTrack = (nr) => {
             <li>Höhenmeter bergab: ${gpxTrack.get_elevation_loss()} m</li>
         </ul>
         `);
+
+        //Wikipedia Artikel zeichnen
+        drawWikipedia(gpxTrack.getBounds ());
     });
     elevationControl.load(`tracks/${nr}.gpx`);
 
 
+};
+
+const drawWikipedia = (bounds) => {
+    console.log(bounds);
 };
 
 const selectedTrack = 15;
