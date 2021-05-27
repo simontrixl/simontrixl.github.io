@@ -51,6 +51,12 @@ const elevationControl = L.control.elevation({
     theme: 'lime-theme',
 }).addTo(map);
 
+const drawWikipedia = (bounds) => {
+    console.log(bounds);
+    let url = `https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${bounds.getNorth()}&south=${bounds.getSouth()}&east=${bounds.getEast()}&west=${bounds.getWest()}&username=simontrixl&lng=de&maxRows=30`;
+    console.log(url);
+};
+
 const drawTrack = (nr) => {
     console.log('Track: ', nr);
     elevationControl.clear();
@@ -90,9 +96,6 @@ const drawTrack = (nr) => {
 
 };
 
-const drawWikipedia = (bounds) => {
-    console.log(bounds);
-};
 
 const selectedTrack = 15;
 drawTrack(selectedTrack);
