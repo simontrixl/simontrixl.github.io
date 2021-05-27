@@ -72,8 +72,8 @@ const drawWikipedia = (bounds) => {
         waterbody: "wikipedia_lake.png",
         default: "wikipedia_information.png",
     };
-    
-    
+
+
 
     //Ursl bei geonames aufrufen und jso-Daten abholen - fetch(im internet nach file suchen)
     fetch(url).then(
@@ -91,19 +91,19 @@ const drawWikipedia = (bounds) => {
             } else {
                 articleDrawn[article.wikipediaUrl] = true;
             }
-            
+
             //welches icon soll verwendt werden?
-        if (icons[article.feature]) {
-            //ein beklanntes
-        } else {
-            //unser generisches Info-icon
-            article.feature ="default";
-        }
+            if (icons[article.feature]) {
+                //ein beklanntes
+            } else {
+                //unser generisches Info-icon
+                article.feature = "default";
+            }
 
             let mrk = L.marker([article.lat, article.lng], {
                 icon: L.icon({
-                    iconUrl: `icons/${icons[article.feature]}`, 
-                    iconSize: [32, 37], 
+                    iconUrl: `icons/${icons[article.feature]}`,
+                    iconSize: [32, 37],
                     iconAnchor: [16, 37],
                     popupAnchor: [0, -37],
                 })
@@ -126,7 +126,7 @@ const drawWikipedia = (bounds) => {
             `);
         }
     });
-    
+
 
 };
 
@@ -163,7 +163,7 @@ const drawTrack = (nr) => {
 
         //Wikipedia Artikel zeichnen
         //drawWikipedia(gpxTrack.getBounds ());
-        
+
     });
     elevationControl.load(`tracks/${nr}.gpx`);
 
@@ -204,7 +204,7 @@ for (let track of BIKETIROL) {
         selected = '';
     }
     pulldown.innerHTML += `<option ${selected} value="${track.nr}">${track.nr}: ${track.etappe}</option>`;
-    
+
 }
 // Metadaten der Etappe setzten updaten
 updateTexts(pulldown.value);
@@ -220,5 +220,5 @@ pulldown.onchange = () => {
 };
 
 map.on("zoomend moveend", () => {
-    drawWikipedia(map.getBounds ());
+    drawWikipedia(map.getBounds());
 });
