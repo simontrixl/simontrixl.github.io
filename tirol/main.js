@@ -56,7 +56,7 @@ const drawWikipedia = (bounds) => {
     let url = `https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${bounds.getNorth()}&south=${bounds.getSouth()}&east=${bounds.getEast()}&west=${bounds.getWest()}&username=simontrixl&lng=de&maxRows=30`;
     console.log(url);
 
-    //Ursl bei geonames aufrufen und jso-Daten abholen
+    //Ursl bei geonames aufrufen und jso-Daten abholen - fetch(im internet nach file suchen)
     fetch(url).then(
         response => response.json()
     ).then(jsonData => {
