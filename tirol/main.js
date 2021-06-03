@@ -130,6 +130,8 @@ const drawWikipedia = (bounds) => {
 
 };
 
+let activeElevationTrack;
+
 const drawTrack = (nr) => {
     console.log('Track: ', nr);
     elevationControl.clear();
